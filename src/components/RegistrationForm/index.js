@@ -5,7 +5,7 @@ export default class RegistrationForm extends Component {
 
   ucheck = event => {
     if (event.target.value === '') {
-      this.setState(prev => ({uerr: true}))
+      this.setState(() => ({uerr: true}))
     }
   }
 
@@ -57,7 +57,9 @@ export default class RegistrationForm extends Component {
     return (
       <div>
         <p>Submitted Successfully</p>
-        <button onClick={this.reset}>Submit Another Response</button>
+        <button onClick={this.reset} type="button">
+          Submit Another Response
+        </button>
         <img
           src="https://assets.ccbp.in/frontend/react-js/success-icon-img.png"
           alt="success"
@@ -68,7 +70,7 @@ export default class RegistrationForm extends Component {
 
   form = () => {
     console.log('formentered')
-    const {username, uerr, perr, password, subit} = this.state
+    const {username, uerr, perr, password} = this.state
     return (
       <div>
         <form onSubmit={this.submit}>
@@ -104,7 +106,7 @@ export default class RegistrationForm extends Component {
   }
 
   render() {
-    const {username, uerr, perr, password, subit} = this.state
+    const {subit} = this.state
 
     return (
       <div>
